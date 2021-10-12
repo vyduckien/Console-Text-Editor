@@ -76,24 +76,6 @@ int main()
                 insert(l, key);
             }
         }
-        // switch (key)
-        // {
-        //     case KEY_LEFT:
-        //         moveleft(l);
-        //         break;
-        //     case KEY_RIGHT:
-        //         moveright(l);
-        //         break;
-        //     case KEY_DEL:
-        //         del(l);
-        //         break;
-        //     default:
-        //         if (key >= 32 && key <= 126)  // If key is from SPACEBAR to ~
-        //         {
-        //             insert(l, key);
-        //         }
-        //         break;
-        // }
     }
 }
 
@@ -128,9 +110,8 @@ void moveright(std::list<char> &l)
 void del(std::list<char> &l)
 {
     auto cursor = std::find(l.begin(), l.end(), '^');
-    if (++cursor == l.end())
+    if (++cursor == l.end()) 
         return;
-
     l.erase(cursor);
     printList(l);
 }
@@ -138,10 +119,8 @@ void del(std::list<char> &l)
 void bspace(std::list<char> &l)
 {
     auto cursor = std::find(l.begin(), l.end(), '^');
-    if (++cursor == l.end())
+    if (cursor == l.begin())
         return;
-
-    --cursor;
     --cursor;
     l.erase(cursor);
     printList(l);
